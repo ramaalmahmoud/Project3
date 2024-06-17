@@ -1,5 +1,5 @@
 
-// localStorage.clear();
+
 
 // remove picture
 
@@ -107,6 +107,6 @@ localStorage.setItem("renewPass",renewPass);
 
 if (currentPassword!=storedPassword){
 document.getElementById('error').textContent='the current password is wrong';
-
+localStorage.clear();
 }
 }

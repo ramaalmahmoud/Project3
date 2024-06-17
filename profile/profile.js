@@ -37,7 +37,7 @@ let email=document.getElementById('email');
    email.textContent=storedEmail;
    
 
-   
+   localStorage.clear();  
     
 }
 display();
