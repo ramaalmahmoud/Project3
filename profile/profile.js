@@ -1,45 +1,37 @@
-async function fetchJason(){
-    let response=await fetch('HR-info.json');
-    let hrJson=await response.json();
-   let data=localStorage.setItem('hrJson',JSON.stringify(hrJson));
+ async function checkIfINLocal() {
+   if (!localStorage.getItem('hrJson')) {
+     try {
+       let response = await fetch('HR-info.json');
+       let hrJson = await response.json();
+       localStorage.setItem('hrJson', JSON.stringify(hrJson));
+     } catch (error) {
+       console.error('Failed to fetch HR-info.json:', error);
+     }
+   }
+ }
+
+
+
+ async function display() {
+   await checkIfINLocal(); 
+   try {
+     const storedData = JSON.parse(localStorage.getItem('hrJson'));
+     let image = document.getElementById('image');
+     let name = document.getElementById('name');
+     let Id = document.getElementById('id');
+     let position = document.getElementById('position');
+     let phone = document.getElementById('phone');
+     let email = document.getElementById('email');
  
-
-}
-
-
-
-function display(){
-    fetchJason();
-  let image=document.getElementById('image');
-    const storedImage=JSON.parse(localStorage.getItem('hrJson')).Image;
-    image.src=storedImage;
-
-
-   let name=document.getElementById('name');
-   const storedName=JSON.parse(localStorage.getItem('hrJson')).full_name;
-   name.textContent=storedName;
-   console.log(storedName);
-
-   let Id=document.getElementById('id');
-   const storedId=JSON.parse(localStorage.getItem('hrJson')).ID;
-   Id.textContent=storedId;
-   
-   let position=document.getElementById('position');
-   const storedPosition=JSON.parse(localStorage.getItem('hrJson')).Postion;
-   position.textContent=storedPosition;
-
-let phone=document.getElementById('phone');
-   const storedPhone=JSON.parse(localStorage.getItem('hrJson')).Phone;
-   phone.textContent=storedPhone;
-
-
-let email=document.getElementById('email');
-   const storedEmail=JSON.parse(localStorage.getItem('hrJson')).email;
-   email.textContent=storedEmail;
-   
-
-   localStorage.clear();  
-    
-}
-display();
+     image.src = storedData.Image;
+     name.textContent = storedData.full_name;
+     Id.textContent = storedData.ID;
+     position.textContent = storedData.Postion;
+     phone.textContent = storedData.Phone;
+     email.textContent = storedData.email;
+   } catch (error) {
+     console.error('Error displaying data from localStorage:', error);
+   }
+ }
+ display();
 

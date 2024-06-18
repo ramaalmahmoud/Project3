@@ -90,98 +90,64 @@ rmv_img.addEventListener('click',function(){
 
 
 function onInput() {
-
-    
-        
-    
-  // chnge info
-    let nameInput = document.getElementById("fullName");
-
-    const name = nameInput.value;
-    localStorage.setItem("Name", name);
-
-    //////////////////////////////////////////////////////////////////////////////////////////////////
-
-    let JobInput = document.getElementById("Job");
-
-    const Job = JobInput.value;
-    localStorage.setItem("Job", Job);
-
-    //////////////////////////////////////////////////////////////////////////////////////////////////
-
-    let PhoneInput = document.getElementById("Phone");
-
-    const Phone = PhoneInput.value;
-    localStorage.setItem("Phone", Phone);
-
-    //////////////////////////////////////////////////////////////////////////////////////////////////
-
-    let EmailInput = document.getElementById("Email");
-
-    const Email = EmailInput.value;
-    const EmailPat = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    
-    if (Email === "" || !EmailPat.test(Email)) {
-      document.getElementById("errorEmail").innerHTML = "Invalid email address";
-      
-      isValid = false;
+  let isValid = true;
+  let nameInput = document.getElementById("fullName");
+  const name = nameInput.value;
+  localStorage.setItem("hrJson", JSON.stringify({ ...JSON.parse(localStorage.getItem('hrJson')), full_name: name }));
+  let JobInput = document.getElementById("Job");
+  const Job = JobInput.value;
+  localStorage.setItem("hrJson", JSON.stringify({ ...JSON.parse(localStorage.getItem('hrJson')), Postion: Job }));
+  let PhoneInput = document.getElementById("Phone");
+  const Phone = PhoneInput.value;
+  localStorage.setItem("hrJson", JSON.stringify({ ...JSON.parse(localStorage.getItem('hrJson')), Phone: Phone }));
+  let EmailInput = document.getElementById("Email");
+  const Email = EmailInput.value;
+  const EmailPat = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  
+  if (Email === "" || !EmailPat.test(Email)) {
+    document.getElementById("errorEmail").innerHTML = "Invalid email address";
+    isValid = false;
   } else {
     document.getElementById("errorEmail").innerHTML = "";
-    localStorage.setItem("Email", Email);
+    localStorage.setItem("hrJson", JSON.stringify({ ...JSON.parse(localStorage.getItem('hrJson')), email: Email }));
   }
-    //////////////////////////////////////////////////////////////////////////////////////////////////
+  let newPassword = document.getElementById('newPassword').value;
+  let renewPassword = document.getElementById('renewPassword').value;
 
+  const passPat = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/;
 
-    
-    let newPassword=document.getElementById('newPassword');
-    let renewPassword=document.getElementById('renewPassword');
-    
-    
-   
-    
-      var newPass=newPassword.value;
-   
-    
-    const passPat = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/;
+  if (newPassword !== "" && !passPat.test(newPassword)) {
+    document.getElementById("error1").innerHTML = "Invalid password. Password must be at least 8 characters long and contain at least one letter and one number";
     isValid = false;
-    
-    if (newPass !== "" && !passPat.test(newPass)) {
-      document.getElementById("error1").innerHTML = "Invalid password. Password must be at least 8 characters long";
-      
+  } else {
+    document.getElementById("error1").innerHTML = "";
+    if (newPassword === renewPassword) {
+      localStorage.setItem("hrJson", JSON.stringify({ ...JSON.parse(localStorage.getItem('hrJson')), password: newPassword }));
+    } else {
+      document.getElementById("error2").innerHTML = "Passwords do not match";
       isValid = false;
-    } else {
-      document.getElementById("error1").innerHTML = "";
-      localStorage.setItem("newPass",newPass);
     }
-    const renewPass=renewPassword.value;
-      
-      if (renewPass === "" || renewPass !== newPass) {
-        document.getElementById("error2").innerHTML = "Passwords do NOT match!";
-           
-        isValid = false;
-    } else {
-      document.getElementById("error2").innerHTML = "";
-      localStorage.setItem("renewPass",renewPass);
-    }
-    
-    return isValid;
-    
-   
+  }
 
+  return isValid;
 }
-
-let n=localStorage.getItem("full_name");
-console.log(n);
-let saveButt=document.getElementById('saveButt');
-saveButt.addEventListener("submit", function(event) {
-  event.preventDefault(); 
-
+let saveButt = document.getElementById('saveButt');
+saveButt.addEventListener("click", function(event) {
+  event.preventDefault();
   if (onInput()) {
-      store(profileImg.src, nameInput.value, JobInput.value);
-      
+    let profileImgSrc = document.getElementById('profileImg').src;
+    let fullNameValue = document.getElementById('fullName').value;
+    let jobValue = document.getElementById('Job').value;
+    localStorage.setItem('hrJson', JSON.stringify({
+      ...JSON.parse(localStorage.getItem('hrJson')),
+      Image: profileImgSrc,
+      full_name: fullNameValue,
+      Postion: jobValue
+    }));
+    window.location.href = '../profile/profile.html'; 
+    alert('Profile updated successfully!');
   }
 });
-
 
 
 
