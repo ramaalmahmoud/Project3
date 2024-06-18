@@ -82,13 +82,13 @@
                     <div class="tab-content pt-2">
       
                        <!-- Profile Edit Form -->
-                       <form>
+                       <form oninput="onInput();" id="f1" >
                         <div class="row mb-3">
                           <label for="profileImage" class="col-md-4 col-lg-3 col-form-label"></label>
                           <div class="col-md-8 col-lg-9">
                             <img src="../Image/blank-profile-picture-973460_960_720.webp" alt="Profile" class="circle-img" id="profileImg" >
                            
-                            <a class="btn-saveprofile flex-md-shrink-0" href="">Save Changes</a>
+                            <a class="btn-saveprofile flex-md-shrink-0" href="" id="saveButt"  >Save Changes</a>
                             <a class="btn-cancle btn-danger flex-md-shrink-0" href="../profile/profile.html">Cancle</a>
                             <div class="pt-2">
                               <a  href="#" class="btn btn-primary btn-sm" title="Upload new profile image" id="changePicLink"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-upload" viewBox="0 0 16 16">
@@ -130,34 +130,34 @@
                         <div class="row mb-3">
                           <label for="Phone" class="col-md-4 col-lg-3 col-form-label">Phone</label>
                           <div class="col-md-8 col-lg-9">
-                            <input name="phone" type="text" class="form-control" id="Phone" value="(436) 486-3538 x29071">
+                            <input name="phone" type="text" class="form-control" id="Phone" value="">
                           </div>
                         </div>
     
                         <div class="row mb-3">
                           <label for="Email" class="col-md-4 col-lg-3 col-form-label">Email</label>
                           <div class="col-md-8 col-lg-9">
-                            <input name="email" type="email" class="form-control" id="Email" value="k.anderson@example.com">
+                            <input name="email" type="email" class="form-control" id="Email" value="">  <div id="errorEmail" style="color: red;"></div>
                           </div>
                         </div>
                         <div class="row mb-3">
                             <label for="currentPassword" class="col-md-4 col-lg-3 col-form-label">Current Password</label>
                             <div class="col-md-8 col-lg-9">
-                              <input name="password" type="password" class="form-control" id="currentPassword" onkeyup="check()"> <p id="error" style="color: red;"></p>
+                              <input name="password" type="password" class="form-control" id="currentPassword" > <p id="error" style="color: red;"></p>
                             </div>
                           </div>
       
                           <div class="row mb-3">
                             <label for="newPassword" class="col-md-4 col-lg-3 col-form-label">New Password</label>
                             <div class="col-md-8 col-lg-9">
-                              <input name="newpassword" type="password" class="form-control" id="newPassword" onkeyup="check()"> <div id="error1" style="color: red;"></div>
+                              <input name="newpassword" type="password" class="form-control" id="newPassword" > <div id="error1" style="color: red;"></div>
                             </div>
                           </div>
       
                           <div class="row mb-3">
                             <label for="renewPassword" class="col-md-4 col-lg-3 col-form-label">Re-enter New Password</label>
                             <div class="col-md-8 col-lg-9">
-                              <input name="renewpassword" type="password" class="form-control" id="renewPassword" onkeyup="check()"> <div id="error2" style="color: red;"></div>
+                              <input name="renewpassword" type="password" class="form-control" id="renewPassword" > <div id="error2" style="color: red;"></div>
                             </div>
                           </div>
       
@@ -254,7 +254,7 @@
               <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i
                       class="bi bi-arrow-up-short"></i></a>
           
-          
+     <script src="edit-profile.js"></script>     
       
 <!-- Vendor JS Files -->
 <script src="../assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
@@ -265,7 +265,7 @@
 <script src="../assets/vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
 <script src="../assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
 <script src="../assets/vendor/swiper/swiper-bundle.min.js"></script>
-<script src="../assets/js/main.js"></script>
+<!-- <script src="../assets/js/main.js"></script> -->
 <!-- Bootstrap JS with jQuery and Popper.js -->
 <!-- <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script> -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>

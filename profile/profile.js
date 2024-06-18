@@ -10,11 +10,12 @@ async function fetchJason(){
 
 function display(){
     fetchJason();
-    // let img=document.getElementsById('image').src;
-    const storedImage=localStorage.getItem("Image");
-   img=storedImage;
+  let image=document.getElementById('image');
+    const storedImage=JSON.parse(localStorage.getItem('hrJson')).Image;
+    image.src=storedImage;
+
+
    let name=document.getElementById('name');
- 
    const storedName=JSON.parse(localStorage.getItem('hrJson')).full_name;
    name.textContent=storedName;
    console.log(storedName);
