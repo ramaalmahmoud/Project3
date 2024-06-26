@@ -28,94 +28,180 @@
   <link rel="stylesheet" href="profile2.css">
   <style>
     /* Custom CSS styles */
-  </style>
+    body {
+        background-color: #f5f5f5;
+        font-family: 'Arial', sans-serif;
+    }
+
+    .container {
+        margin-top: 50px;
+    }
+
+    .profile-card {
+        background: #ffffff;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        overflow: hidden;
+        transition: transform 0.3s ease;
+    }
+
+    .profile-card:hover {
+        transform: translateY(-10px);
+    }
+
+    .profile-img {
+        position: relative;
+        overflow: hidden;
+        border-bottom: 5px solid #007bff;
+    }
+
+    .profile-img img {
+        width: 100%;
+        border-radius: 10px 0 0 10px;
+        transition: transform 0.3s ease;
+    }
+
+    .profile-img img:hover {
+        transform: scale(1.1);
+    }
+
+    .card-body {
+        padding: 20px;
+    }
+
+    .card-title {
+        font-size: 2em;
+        margin-bottom: 10px;
+    }
+
+    .card-subtitle {
+        font-size: 1.2em;
+        color: #888;
+        margin-bottom: 15px;
+    }
+
+    .info-section {
+        margin:2rem;
+    }
+
+    .labels {
+        font-weight: bold;
+        margin-right: 10px;
+    }
+
+    .info-detail {
+        font-size: 1.3em; /* Increase font size for email, phone, and ID */
+        display: inline;
+    }
+
+    .btn-editprofile {
+        position: relative;
+        bottom: 10px;
+        left: 10px;
+        display: inline-block;
+        padding: 10px 20px;
+        background-color: #007bff;
+        color: #fff;
+        border-radius: 5px;
+        text-decoration: none;
+        transition: background-color 0.3s ease;
+    }
+
+    .btn-editprofile:hover {
+        background-color: #0056b3;
+    }
+
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    .fade-in {
+        animation: fadeIn 1s ease-in-out;
+    }
+</style>
 </head>
 <body>
-  <header id="header" class="header d-flex align-items-center fixed-top">
-    <div class="container-fluid container-xl position-relative d-flex align-items-center">
-
-        <a href="" class="logo d-flex align-items-center me-auto">
-            <!-- Uncomment the line below if you also wish to use an image logo -->
-            <img src="../Image/Logo.png" alt="">
-            <!-- <h1 class="sitename">FlexStart</h1> -->
-        </a>
-
-        <nav id="navmenu" class="navmenu">
-            <ul>
-                <li><a href="../index/index.html">Home<br></a></li>
-                <li><a href="../servicesPage/services.html">Services</a></li>
-                <li><a href="../about/about.html">About</a></li>
-
-
-                </li>
-                <li><a href="../contact/contact2.html">Contact</a></li>
-                <li><a href="../about/about.html#team">Team</a></li>
-                <li><a href="#">Log Out</a></li>
-
-
-            </ul>
-            <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
-        </nav>
-
-        <a class="btn-getstarted flex-md-shrink-0" href="../profile/profile2.html"><i class="bi bi-person-check-fill"></i></a>
-
-    </div>
-</header>
+    <header id="header" class="header d-flex align-items-center fixed-top">
+        <div class="container-fluid container-xl position-relative d-flex align-items-center">
+    
+            <a href="" class="logo d-flex align-items-center me-auto">
+                <!-- Uncomment the line below if you also wish to use an image logo -->
+                <img src="../Image/Logo.png" alt="">
+                <!-- <h1 class="sitename">FlexStart</h1> -->
+            </a>
+    
+            <nav id="navmenu" class="navmenu">
+                <ul>
+                    <li><a href="../index/index.html">Home<br></a></li>
+                    <li><a href="../servicesPage/services.html">Services</a></li>
+                    <li><a href="../about/about.html">About</a></li>
+    
+    
+                    </li>
+                    <li><a href="../contact/contact2.html">Contact</a></li>
+                    <li><a href="../LoginPage/index.html">Log Out</a></li>
+    
+    
+                </ul>
+                <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+            </nav>
+    
+            <a class="btn-getstarted flex-md-shrink-0" href="../profile/profile2.html"><i class="bi bi-person-check-fill"></i></a>
+    
+        </div>
+    </header>
 
  
 <div class="container portfolio">
-	<div class="row">
-		<div class="col-md-12">
-			<div class="heading">				
-				<img src="https://image.ibb.co/cbCMvA/logo.png" />
-			</div>
-		</div>	
-	</div>
-	<div class="bio-info">
-		<div class="row">
-			<div class="col-md-6">
-				<div class="row">
-					<div class="col-md-12">
-						<div class="bio-image">
-							<img src="../Image/blank-profile-picture-973460_960_720.webp" alt="image" class="imgs fade-in" id="image" />
-						</div>	
-                        		
-					</div>
-                    <a class="btn-editprofile flex-md-shrink-0" href="../edit profile/edit-profile.html">Edit Profile<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
-                        <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
-                        <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5z"/>
-                      </svg>
-                    </a>
-				</div>	
-			</div>
-			<div class="col-md-6">
-				<div class="bio-content">
-					<h1 id="name">Person 1</h1>
-					<h6 id="position">Position</h6>
-					<p id="bio"></p>
-                    
-                     <label for="name" class="labels"> ID:  <h6 id="id" style="display: inline;">1234 </h6>   </label>
+    <div class="row justify-content-center">
+        <div class="col-md-10">
+            <div class="card profile-card">
+                <div class="row no-gutters">
+                    <div class="col-md-4">
                         
-                <div>
-                      <label for="phone" class="labels"> Phone:  </label>
-                      <h6 id="phone" style="display: inline;">0096277123467</h6>
-                    
+                        <div class="profile-img">
+                            <img src="../Image/blank-profile-picture-973460_960_720.webp" alt="Profile Image" class="img-fluid fade-in" id="image" />
+                        </div>
+                        <a class="btn btn-primary btn-editprofile" href="../edit profile/edit-profile.html">
+                            Edit Profile
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
+                                <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
+                                <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5z"/>
+                            </svg>
+                        </a>
+                        
                     </div>
-                   
-  
-  
-                   
-                    <div >
-                      <label for="email" class="labels">Email : </label>
-                      <h6 id="email" style="display: inline;">example@gmail.com</h6>
+                    <div class="col-md-8">
+                        <div class="card-body">
+                            <h1 id="name" class="card-title">Person 1</h1>
+                            <h6 id="position" class="card-subtitle mb-2 text-muted">Position</h6>
+                            <p id="bio" class="card-text"></p>
+                            <div class="info-section">
+                                <label for="id" class="labels">ID:</label>
+                                <h6 id="id" class="info-detail" style="display: inline;">1234</h6>
+                            </div>
+                            <div class="info-section">
+                                <label for="phone" class="labels">Phone:</label>
+                                <h6 id="phone" class="info-detail" style="display: inline;">0096277123467</h6>
+                            </div>
+                            <div class="info-section">
+                                <label for="email" class="labels">Email:</label>
+                                <h6 id="email" class="info-detail" style="display: inline;">example@gmail.com</h6>
+                            </div>
+                        </div>
                     </div>
-  
-				</div>
-			</div>
-		</div>	
-	</div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
-
 <br>
 <br>
 <br>
@@ -172,7 +258,7 @@
     </div>
           
     <div class="container copyright text-center mt-4">
-        <p>© <span>Copyright</span> <strong class="px-1 sitename">HR Nexus</strong> <span>All Rights Reserved</span></p>
+        <p>Â© <span>Copyright</span> <strong class="px-1 sitename">HR Nexus</strong> <span>All Rights Reserved</span></p>
         <div class="credits">
         <!-- All the links in the footer should remain intact. -->
         <!-- You can delete the links only if you've purchased the pro version. -->
@@ -201,11 +287,12 @@
     <script src="../assets/vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
     <script src="../assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
     <script src="../assets/vendor/swiper/swiper-bundle.min.js"></script>
-    <!-- <script src="../assets/js/main.js"></script> -->
-  <!-- Bootstrap JS with jQuery and Popper.js -->
-  <!-- <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script> -->
+    <script src="../assets/js/main.js"></script>
+
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <script src="/scriptForALLPages/script.js"></script>
 </body>
 </html>
